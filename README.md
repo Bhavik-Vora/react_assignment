@@ -46,6 +46,37 @@ npm start
 
 Usage
 
-Home Page: View tasks, add new tasks, and see the list of all tasks.
+Home Page: View tasks, add new tasks, and see the list of all tasks. 
 Add Task: Create new tasks with due dates and categories.
 Fetch Tasks: View tasks within a specified period.
+
+Packages:
+
+Frontend:
+@chakra-ui/react
+@emotion/react
+@emotion/styled
+axios
+framer-motion
+protected-route-react
+react
+react-dom
+react-hot-toast
+react-icons
+react-router-dom
+
+Backend:
+bcryptjs
+cookie-parser
+cors
+dotenv
+express
+jsonwebtoken
+mongoose
+nodemon
+validator
+
+
+
+
+
