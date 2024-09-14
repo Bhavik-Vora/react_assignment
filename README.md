@@ -7,14 +7,14 @@ Features
 User Authentication: Secure login, registration, and logout.
 CRUD Operations: Create, Read, Update, and Delete tasks.
 Task Management: Add due dates, categorize tasks, and mark them as completed.
-Tech Stack
 
+Tech Stack:
 Frontend: React, Chakra UI
 Backend: Node.js, Express.js
 Database: MongoDB
 Authentication: JSON Web Tokens (JWT)
 
-Installation
+Installation:
 
 Clone the repository:
 git clone https://github.com/Bhavik-Vora/react_assignment.git
@@ -29,15 +29,13 @@ cd frontend
 npm install
 
 For the backend
-
 cd ../backend
 npm install
 
 Set up environment variables:
-
 Create a .env file in the backend directory with the necessary configuration.
-Start the development servers:
 
+Start the development servers:
 Frontend:
 cd frontend
 npm start
@@ -47,6 +45,7 @@ cd ../backend
 npm start
 
 Usage
+
 Home Page: View tasks, add new tasks, and see the list of all tasks.
 Add Task: Create new tasks with due dates and categories.
 Fetch Tasks: View tasks within a specified period.
