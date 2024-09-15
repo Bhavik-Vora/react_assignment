@@ -8,9 +8,8 @@ const Header = ({ isLoggedIn }) => {
   const location = useLocation();
 
   const handleLogout = () => {
-    // Clear the token cookie or call the logout API
-    document.cookie = 'todotoken=; Max-Age=0'; // Clears the cookie
-    window.location.reload(); // Refresh to reflect logout
+    document.cookie = 'todotoken=; Max-Age=0'; 
+    window.location.reload(); 
   };
 
   return (
@@ -22,7 +21,6 @@ const Header = ({ isLoggedIn }) => {
         boxShadow={'-2px 0 10px rgba(107,70,193,0.5)'}
         color={'white'}
       >
-        {/* Navigation Links */}
         <LinkButton
           url="/"
           Icon={RiDashboardFill}
@@ -44,8 +42,7 @@ const Header = ({ isLoggedIn }) => {
           active={location.pathname === '/tasks'}
         />
 
-        {/* Login/Logout Button */}
-        <Box mt="auto"> {/* Push to bottom of sidebar */}
+        <Box mt="auto"> 
           {isLoggedIn ? (
             <Button colorScheme="purple" onClick={handleLogout}>
               Logout

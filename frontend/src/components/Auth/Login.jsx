@@ -19,7 +19,7 @@ const Login = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setError(''); // Clear previous errors
+    setError(''); 
 
     try {
       const response = await fetch(`${server}/login`, {
@@ -33,15 +33,13 @@ const Login = () => {
       const data = await response.json();
       
       if (data.success) {
-        // Store token in cookies or local storage
         document.cookie = `todotoken=${data.token}; path=/;`;
-        // Redirect to home page or wherever you want
         navigate('/');
       } else {
-        setError(data.message); // Display error message
+        setError(data.message); 
       }
     } catch (err) {
-      setError('An error occurred. Please try again.'); // Handle fetch error
+      setError('An error occurred. Please try again.'); 
     }
   };
 
