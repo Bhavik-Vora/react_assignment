@@ -1,37 +1,49 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import {ProtectedRoute} from "protected-route-react"
-import CreateTasks from './components/Task/CreateTasks.jsx';
-import FetchTask from './components/Task/FetchTasks.jsx';
-import HomePage from './components/Home/Home.jsx';
-import Layout from './components/Layout.jsx';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { ProtectedRoute } from "protected-route-react";
+import CreateTasks from "./components/Task/CreateTasks.jsx";
+import FetchTask from "./components/Task/FetchTasks.jsx";
+import HomePage from "./components/Home/Home.jsx";
+import Layout from "./components/layout/Layout.jsx";
+import PrivateRoute from "./components/Auth/PrivateRoute.jsx";
+import Login from "./components/Auth/Login.jsx";
+import PublicRoute, { getTokenFromCookies } from "./components/Auth/PublicRoute.jsx";
 
 function App() {
-  const isAuthenticated = true; 
+  const gettoken = getTokenFromCookies();
+  const isAuthenticated = Boolean(gettoken); 
   return (
-    <Layout>
-
-
-    <Routes>
-      <Route path="/" element={<HomePage/>} />
-      <Route
-        path="/createtask"
-        element={
-          <ProtectedRoute isAuthenticated={isAuthenticated}>
-            <CreateTasks />
-          </ProtectedRoute>
-        }
+    <Layout isLoggedIn={isAuthenticated}>
+      <Routes>
+        <Route path="/login" element={ <PublicRoute>
+              <Login />
+            </PublicRoute>} />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <HomePage />
+            </PrivateRoute>
+          }
         />
-      <Route
-        path="/fetchtask"
-        element={
-          <ProtectedRoute isAuthenticated={isAuthenticated}>
-            <FetchTask />
-          </ProtectedRoute>
-        }
+        <Route
+          path="/createtask"
+          element={
+            <PrivateRoute>
+              <CreateTasks />
+            </PrivateRoute>
+          }
         />
-    </Routes>
-        </Layout>
+        <Route
+          path="/fetchtask"
+          element={
+            <PrivateRoute>
+              <FetchTask />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </Layout>
   );
 }
 

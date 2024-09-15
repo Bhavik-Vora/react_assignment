@@ -93,7 +93,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Grid minH={'100vh'} p={6} bg="#1A202C" templateColumns={['1fr', '3fr 1fr']} gap={6}>
+    <Grid minH={'100vh'} p={6} bg="#1A202C" templateColumns={['1fr', '3fr 1fr']}>
       <Box p={6} bg="gray.800" borderRadius="md" boxShadow="md">
         <VStack spacing={6} align="stretch">
           <Box mb={6}>
